@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestion de Bulletin de Notes</title>
+    <link rel="stylesheet" href="css/css.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1><i class="fas fa-graduation-cap"></i> Gestion de Bulletin</h1>
+            <p>Gérez les notes et calculs automatiquement</p>
+        </header>
+
+        <!-- Informations de l'élève -->
+        <div class="student-info">
+            <h3><i class="fas fa-user-graduate"></i> Informations de l'élève</h3>
+            <div class="info-grid">
+                <div class="info-group">
+                    <label for="studentName">Nom et Prénom de l'élève</label>
+                    <input type="text" id="studentName" placeholder="Ex: Jean Dupont" maxlength="100">
+                </div>
+                <div class="info-group">
+                    <label for="className">Classe</label>
+                    <input type="text" id="className" placeholder="Ex: 6ème A" maxlength="50">
+                </div>
+                <div class="info-group">
+                    <label for="schoolName">Établissement</label>
+                    <input type="text" id="schoolName" placeholder="Ex: Collège Victor Hugo" maxlength="100">
+                </div>
+                <div class="info-group">
+                    <label for="schoolYear">Année scolaire</label>
+                    <input type="text" id="schoolYear" placeholder="Ex: 2024-2025" maxlength="20">
+                </div>
+                <div class="info-group">
+                    <label for="teacherName">Professeur principal</label>
+                    <input type="text" id="teacherName" placeholder="Ex: Mme Martin" maxlength="100">
+                </div>
+                <div class="info-group">
+                    <label for="semester">Semestre/Trimestre</label>
+                    <select id="semester">
+                        <option value="">Sélectionner</option>
+                        <option value="1er trimestre">1er trimestre</option>
+                        <option value="2ème trimestre">2ème trimestre</option>
+                        <option value="3ème trimestre">3ème trimestre</option>
+                        <option value="1er semestre">1er semestre</option>
+                        <option value="2ème semestre">2ème semestre</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <div class="controls">
+            <div class="mode-selection">
+                <h3>Mode de Calcul</h3>
+                <div class="mode-options">
+                    <label class="mode-option">
+                        <input type="radio" name="mode" value="simple" checked>
+                        <span>Simple (moyenne arithmétique)</span>
+                    </label>
+                    <label class="mode-option">
+                        <input type="radio" name="mode" value="pondere">
+                        <span>Pondéré (avec coefficients)</span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="add-row">
+                <button id="addRowBtn" class="btn btn-primary">
+                    <i class="fas fa-plus"></i> Ajouter une matière
+                </button>
+            </div>
+        </div>
+
+        <div class="table-container">
+            <table id="gradesTable" class="grades-table">
+                <thead>
+                    <tr>
+                        <th>Matière</th>
+                        <th>Note (/20)</th>
+                        <th>Coefficient</th>
+                        <th>Note Pondérée</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="tableBody">
+                    <!-- Les lignes seront ajoutées dynamiquement -->
+                </tbody>
+            </table>
+        </div>
+
+        <div class="results">
+            <div class="result-card">
+                <h3><i class="fas fa-calculator"></i> Résultats</h3>
+                <div class="result-grid">
+                    <div class="result-item">
+                        <span class="label">Total des notes :</span>
+                        <span id="totalNotes" class="value">0</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="label">Moyenne :</span>
+                        <span id="average" class="value">0.00</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="label">Total des coefficients :</span>
+                        <span id="totalCoeff" class="value">0</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="label">Moyenne pondérée :</span>
+                        <span id="weightedAverage" class="value">0.00</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="actions">
+            <button id="clearBtn" class="btn btn-secondary">
+                <i class="fas fa-trash"></i> Effacer tout
+            </button>
+            <button id="exportBtn" class="btn btn-success">
+                <i class="fas fa-download"></i> Exporter
+            </button>
+        </div>
+    </div>
+
+    <script src="script/index.js"></script>
+</body>
+</html>
